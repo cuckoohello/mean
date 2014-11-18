@@ -100,4 +100,12 @@ module.exports = function(app, passport, db) {
 
   // Connect flash for flash messages
   app.use(flash());
+
+  app.use(function(err, req, res, next){
+    if (err instanceof SyntaxError){
+      res.status(400).json({id:'bad_request',msg:'请求无效',url:''});
+    }else{
+      next(err);
+    }
+  });
 };

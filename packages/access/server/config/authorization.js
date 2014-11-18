@@ -5,7 +5,7 @@
  */
 exports.requiresLogin = function(req, res, next) {
   if (!req.isAuthenticated()) {
-    return res.send(401, 'User is not authorized');
+    return res.status(401).json({id:'unauthorized',msg:'未认证',url:''});
   }
   next();
 };

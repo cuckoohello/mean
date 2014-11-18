@@ -8,6 +8,7 @@ Icon
 ._*
 .Spotlight-V100
 .Trashes
+*.swp
 
 # --------------------
 # IntelliJ Files
@@ -57,4 +58,5 @@ modules/views/
 # --------------------
 # Contrib package
 # --------------------
-packages/contrib
+packages/contrib/
+packages/custom/
