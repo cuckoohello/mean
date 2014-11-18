@@ -164,6 +164,13 @@ UserSchema.methods = {
     if (!password || !this.salt) return '';
     var salt = new Buffer(this.salt, 'base64');
     return crypto.pbkdf2Sync(password, salt, 10000, 64).toString('base64');
+  },
+
+  toJSON: function() {
+    var obj = this.toObject();
+    delete obj.salt;
+    delete obj.hashed_password;
+    return obj;
   }
 };
 
